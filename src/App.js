@@ -18,10 +18,20 @@ class App extends React.Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  getContactNames = () => {
+    return this.state.contacts.map(contact => contact.name);
+  };
+
   handleSubmittedData = contact => {
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
-    }));
+    const existingNames = this.getContactNames();
+
+    if (existingNames.includes(contact.name)) {
+      alert(`${contact.name} is already in contacts`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [contact, ...prevState.contacts],
+      }));
+    }
   };
 
   filterContacts = () => {
