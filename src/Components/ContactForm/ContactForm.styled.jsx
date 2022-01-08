@@ -7,6 +7,14 @@ const Wrapper = styled.div`
   align-items: flex-start;
 `;
 const Label = styled.label``;
-const Input = styled.input``;
-const Button = styled.button``;
+const Input = styled.input`
+  margin-bottom: 10px;
+`;
+const Button = styled.button`
+  align-self: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 export { Form, Label, Input, Button, Wrapper };

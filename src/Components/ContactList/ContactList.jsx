@@ -1,24 +1,27 @@
 import propTypes from 'prop-types';
+import { ImBin2 } from 'react-icons/im';
+
+import { List, Item, Button } from './ContactList.styled';
 
 const ContactList = ({ contacts, deleteHandler }) => {
   return (
-    <ul>
+    <List>
       {contacts.map(({ name, number, id }) => {
         return (
-          <li key={id}>
+          <Item key={id}>
             {name} : {number}
-            <button
+            <Button
               onClick={() => {
                 deleteHandler(id);
               }}
               type="button"
             >
-              X
-            </button>
-          </li>
+              <ImBin2 />
+            </Button>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 };
 

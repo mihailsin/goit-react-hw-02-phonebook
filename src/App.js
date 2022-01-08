@@ -1,8 +1,12 @@
 import React from 'react';
-import './App.css';
+
 import ContactForm from './Components/ContactForm';
 import ContactList from './Components/ContactList';
 import Filter from './Components/Filter';
+
+import './App.css';
+import { Grid, GridContainer } from './App.styled';
+
 class App extends React.Component {
   state = {
     contacts: [
@@ -51,19 +55,24 @@ class App extends React.Component {
   render() {
     const filteredContacts = this.filterContacts();
     return (
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm submitted={this.handleSubmittedData} />
-        <h2>Contacts</h2>
-        <Filter
-          value={this.state.filter}
-          inputHandler={this.filterInputHandler}
-        />
-        <ContactList
-          contacts={filteredContacts}
-          deleteHandler={this.deleteContact}
-        />
-      </div>
+      <Grid>
+        <GridContainer>
+          <h1>Phonebook</h1>
+          <ContactForm submitted={this.handleSubmittedData} />
+        </GridContainer>
+
+        <GridContainer>
+          <h2>Contacts</h2>
+          <Filter
+            value={this.state.filter}
+            inputHandler={this.filterInputHandler}
+          />
+          <ContactList
+            contacts={filteredContacts}
+            deleteHandler={this.deleteContact}
+          />
+        </GridContainer>
+      </Grid>
     );
   }
 }

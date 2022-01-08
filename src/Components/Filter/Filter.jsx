@@ -1,13 +1,13 @@
 import { nanoid } from 'nanoid';
 import propTypes from 'prop-types';
-
+import { Label, Input, Wrapper } from '../ContactForm/ContactForm.styled';
 const Filter = ({ value, inputHandler }) => {
   const filterInputId = nanoid(7);
 
   return (
-    <div>
-      <label htmlFor={filterInputId}>Filter</label>
-      <input
+    <Wrapper>
+      <Label htmlFor={filterInputId}>Filter</Label>
+      <Input
         onChange={inputHandler}
         id={filterInputId}
         value={value}
@@ -15,7 +15,7 @@ const Filter = ({ value, inputHandler }) => {
         name="filter"
         required
       />
-    </div>
+    </Wrapper>
   );
 };
 
