@@ -23,13 +23,13 @@ class App extends React.Component {
   };
 
   getContactNames = () => {
-    return this.state.contacts.map(contact => contact.name);
+    return this.state.contacts.map(contact => contact.name.toLowerCase());
   };
 
   handleSubmittedData = contact => {
     const existingNames = this.getContactNames();
 
-    if (existingNames.includes(contact.name)) {
+    if (existingNames.includes(contact.name.toLowerCase())) {
       alert(`${contact.name} is already in contacts`);
     } else {
       this.setState(prevState => ({

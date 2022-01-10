@@ -1,4 +1,3 @@
-import { resetWarningCache } from 'prop-types/checkPropTypes';
 import { nanoid } from 'nanoid';
 
 import React from 'react';
@@ -35,13 +34,14 @@ class ContactForm extends React.Component {
   };
 
   render() {
+    const { name, number } = this.state;
     return (
       <Form onSubmit={this.submitHandler}>
         <Wrapper>
           <Label htmlFor={this.nameInputId}>Name</Label>
           <Input
             id={this.nameInputId}
-            value={this.state.name}
+            value={name}
             onChange={this.inputHandler}
             type="text"
             name="name"
@@ -52,7 +52,7 @@ class ContactForm extends React.Component {
           <Label htmlFor={this.numberInputid}>Number</Label>
           <Input
             id={this.numberInputid}
-            value={this.state.number}
+            value={number}
             onChange={this.inputHandler}
             type="tel"
             name="number"
